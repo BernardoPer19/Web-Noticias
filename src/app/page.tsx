@@ -1,7 +1,7 @@
-import PoliticsCarousel from "@/components/Ui/CarruselTecnologia";
-import SportsNews from "@/components/Ui/Deportes";
-import ScienceNewsCarousel from "@/components/Ui/NegociosCarrucel";
-import RecientesUI from "@/components/Ui/RecientesUI";
+import PoliticsCarousel from "@/components/Ui/client/PoliticaCarrusel";
+import SportsNews from "@/components/Ui/server/Deportes";
+import ScienceNewsCarousel from "@/components/Ui/client/CienciaCarrucel";
+import RecientesUI from "@/components/Ui/server/RecientesUI";
 import { fetchSortedNews } from "@/hooks/useFetchNews";
 
 export default async function Home() {

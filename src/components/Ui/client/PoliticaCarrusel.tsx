@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
+import Link from "next/link";
 
 interface Article {
   urlToImage: string;
@@ -42,7 +43,7 @@ const PoliticsCarousel: React.FC<Props> = ({ news }) => {
               className="w-full h-40 object-cover"
             />
             <div className="p-3">
-              <h3 className="text-sm font-semibold">{article.title}</h3>
+            <Link href={`/${article.title}`}><h3 className="text-sm font-semibold hover:underline">{article.title}</h3></Link>
             </div>
           </SwiperSlide>
         ))}

@@ -1,8 +1,8 @@
-import { fetchCategoryNews } from "@/hooks/useFetchNews";
+import { fetchCategoryNews, fetchSortedNews } from "@/hooks/useFetchNews";
+import Link from "next/link";
 
 export default async function SportsNews() {
-  const news = await fetchCategoryNews("sports"); // Noticias de deportes
-
+  const news = await fetchSortedNews("sport", "relevancy");
   if (!news || news.length === 0) {
     return (
       <p className="text-center text-gray-500">No hay noticias disponibles.</p>
@@ -24,7 +24,12 @@ export default async function SportsNews() {
         />
         {/* Texto */}
         <div className="p-6 flex flex-col justify-center md:w-1/2">
-          <h2 className="text-3xl font-bold mb-2">{mainNews.title}</h2>
+          <Link href={`/${mainNews.title}`}>
+            <h2 className="text-sm cursor-pointer hover:underline">
+              {mainNews.title}
+            </h2>
+          </Link>
+
           <p className="text-gray-600 mb-4">{mainNews.description}</p>
           <p className="text-sm text-gray-500">
             {new Date(mainNews.publishedAt).toLocaleDateString()}
@@ -40,7 +45,11 @@ export default async function SportsNews() {
               alt={article.title}
               className="w-full h-40 object-cover"
             />
-            <h3 className="p-2 text-sm font-semibold">{article.title}</h3>
+            <Link href={`/${article.title}`}>
+              <h3 className="text-sm font-semibold hover:underline">
+                {article.title}
+              </h3>
+            </Link>
           </div>
         ))}
       </div>

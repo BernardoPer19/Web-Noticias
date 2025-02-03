@@ -1,4 +1,6 @@
 import { fetchSortedNews } from "@/hooks/useFetchNews";
+import Link from "next/link";
+import RecientesRight from "./RecientesRight";
 
 async function RecientesUI() {
   const news = await fetchSortedNews("breaking news", "publishedAt");
@@ -7,8 +9,7 @@ async function RecientesUI() {
 
   // Dividir las noticias en secciones
   const leftNews = news.slice(0, 3);
-  const centerNews = news[5];
-  const rightNews = news.slice(3, 8);
+  const centerNews = news[52];
 
   return (
     <main className="h-screen  p-6 m-auto flex items-center flex-col justify-center gap-5">
@@ -23,7 +24,10 @@ async function RecientesUI() {
                 alt={article.title}
                 className="w-full h-28 object-cover rounded-lg"
               />
-              <h2 className="text-sm font-semibold mt-2">{article.title}</h2>
+              <Link href={`/${article.title}`}>
+                {" "}
+                <h2 className="text-sm cursor-pointer hover:underline">{article.title}</h2>
+              </Link>
             </div>
           ))}
         </div>
@@ -36,31 +40,20 @@ async function RecientesUI() {
             className="w-full h-96 object-cover"
           />
           <div className="p-4">
-            <h1 className="text-2xl font-bold">{centerNews.title}</h1>
+            <Link href={`/${centerNews.title}`}>
+              <h2 className="text-sm cursor-pointer hover:underline">{centerNews.title}</h2>
+            </Link>
             <p className="text-sm text-gray-400  mt-2">
               {centerNews.description}
             </p>
-          <p className="text-sm text-gray-500">{new Date(centerNews.publishedAt).toLocaleDateString()}</p>
-
+            <p className="text-sm text-gray-500">
+              {new Date(centerNews.publishedAt).toLocaleDateString()}
+            </p>
           </div>
         </div>
 
         {/* 🔴 Noticias recientes (derecha) */}
-        <div className="flex flex-col justify-center gap-6 col-span-1">
-          {rightNews.map((article) => (
-            <div
-              key={article.url}
-              className="flex gap-2  p-2 rounded-lg items-center"
-            >
-              <img
-                src={article.urlToImage}
-                alt={article.title}
-                className="w-20 h-20 object-cover rounded-lg"
-              />
-              <h2 className="text-sm">{article.title}</h2>
-            </div>
-          ))}
-        </div>
+          <RecientesRight />
       </div>
     </main>
   );
