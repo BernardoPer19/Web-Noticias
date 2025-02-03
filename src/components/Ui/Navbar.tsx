@@ -21,12 +21,12 @@ export default function Navbar() {
   return (
     <nav className="bg-gray-900 text-white p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
+        
         <Link href="/" className="text-2xl font-bold">
           NewsApp
         </Link>
 
-        {/* Categorías */}
+      
         <ul className="hidden md:flex gap-6 text-sm uppercase">
           {categories.map((category) => (
             <li key={category}>
@@ -42,7 +42,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Menú Responsive */}
+     
         <div className="md:hidden">
           <button className="text-white text-xl">☰</button>
         </div>
