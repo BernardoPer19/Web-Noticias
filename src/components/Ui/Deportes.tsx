@@ -1,7 +1,7 @@
 import { fetchCategoryNews } from "@/hooks/useFetchNews";
 
 export default async function SportsNews() {
-  const news = await fetchCategoryNews("sports"); // Noticias de deportes
+  const news = await fetchCategoryNews("sports"); 
 
   if (!news || news.length === 0) {
     return (
@@ -14,15 +14,15 @@ export default async function SportsNews() {
 
   return (
     <section className="container mx-auto p-6 ">
-      {/* Noticia principal */}
+   
       <div className="flex flex-col md:flex-row  rounded-lg overflow-hidden">
-        {/* Imagen */}
+    
         <img
           src={mainNews.urlToImage}
           alt={mainNews.title}
           className="w-full md:w-1/2 h-72 object-cover"
         />
-        {/* Texto */}
+  
         <div className="p-6 flex flex-col justify-center md:w-1/2">
           <h2 className="text-3xl font-bold mb-2">{mainNews.title}</h2>
           <p className="text-gray-600 mb-4">{mainNews.description}</p>
