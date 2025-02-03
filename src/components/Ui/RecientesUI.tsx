@@ -14,7 +14,7 @@ async function RecientesUI() {
     <main className="h-screen  p-6 m-auto flex items-center flex-col justify-center gap-5">
       <h1 className="text-start w-full text-2xl">Noticias Recientes</h1>
       <div className="grid grid-cols-4 gap-6">
-        {/* 🟢 Noticias pequeñas (izquierda) */}
+    
         <div className="flex flex-col justify-center gap-4 col-span-1 ">
           {leftNews.map((article) => (
             <div key={article.url} className=" p-2 rounded-lg">
@@ -28,7 +28,7 @@ async function RecientesUI() {
           ))}
         </div>
 
-        {/* 🔵 Noticia grande (centro) */}
+    
         <div className="col-span-2   rounded-lg overflow-hidden flex flex-col items-center justify-center">
           <img
             src={centerNews.urlToImage}
@@ -45,7 +45,7 @@ async function RecientesUI() {
           </div>
         </div>
 
-        {/* 🔴 Noticias recientes (derecha) */}
+       
         <div className="flex flex-col justify-center gap-6 col-span-1">
           {rightNews.map((article) => (
             <div
