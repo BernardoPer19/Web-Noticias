@@ -8,7 +8,7 @@ export const fetchData = async (endpoint: string): Promise<NewsTypes[]> => {
 
     try {
         const res = await fetch(`https://newsapi.org/v2${endpoint}&apiKey=${API_KEY}`, {
-            next: { revalidate: 3600 }, // ✅ Cache por 1 hora
+            next: { revalidate: 3600 },
         });
 
         if (!res.ok) {
