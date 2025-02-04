@@ -50,7 +50,7 @@ async function RecientesUI() {
           </div>
         </div>
 
-        {/* 🔴 Noticias recientes (derecha) */}
+ 
           <RecientesRight />
       </div>
     </main>
