@@ -20,7 +20,7 @@ export default async function NewsDetail({
   if (!article) {
     return (
       <p className="text-center text-gray-500 text-lg mt-10">
-        ❌ Noticia no encontrada.
+        ❌ Noticia no encontrada.  ❌ 
       </p>
     );
   }
@@ -37,7 +37,7 @@ export default async function NewsDetail({
           <h1 className="text-4xl font-bold mt-4 ">{article.title}</h1>
 
           <p className=" text-sm mt-2">
-            🗓️ Publicado el:
+            Publicado el:
             {new Date(article.publishedAt).toLocaleDateString()}
           </p>
 
@@ -57,7 +57,7 @@ export default async function NewsDetail({
           </div>
 
           <p className="text-sm mt-2">
-            👀 {Math.floor(Math.random() * 5000) + 100} vistas
+            {Math.floor(Math.random() * 5000) + 100} vistas
           </p>
 
           <CompartirBtn article={article} />
@@ -65,7 +65,7 @@ export default async function NewsDetail({
         <RecientesRight />
       </div>
 
-      <h2 className="text-2xl font-bold mt-10">🔗 Noticias Relacionadas</h2>
+      <h2 className="text-2xl font-bold mt-10"> Noticias Relacionadas</h2>
       <Relacionados />
 
       <ScienceNewsCarousel news={scienceNews.slice(10, 20)} />
