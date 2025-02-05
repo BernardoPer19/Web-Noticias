@@ -1,9 +1,5 @@
 import Link from "next/link";
-import {
-  fetchSearchNews,
-  fetchSortedNews,
-  fetchCategoryNews,
-} from "@/hooks/useFetchNews";
+import { fetchSearchNews, fetchSortedNews } from "@/hooks/useFetchNews";
 import RecientesRight from "@/components/Ui/server/RecientesRight";
 import ScienceNewsCarousel from "@/components/Ui/client/CienciaCarrucel";
 import { NewsTypes } from "@/types/NewsTypes";
@@ -70,10 +66,10 @@ export default async function NewsDetail({
       </div>
 
       <h2 className="text-2xl font-bold mt-10">🔗 Noticias Relacionadas</h2>
+      <Relacionados />
 
       <ScienceNewsCarousel news={scienceNews.slice(10, 20)} />
 
-      <Relacionados />
       <UltimasNoticias />
       <Entretenimiento />
     </main>

@@ -18,7 +18,7 @@ interface Props {
 const PoliticsCarousel: React.FC<Props> = ({ news }) => {
   return (
     <section className="container mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Noticias de Tecnología</h2>
+      <h2 className="text-2xl font-bold mb-4">Noticias de Politica</h2>
 
       <Swiper
         modules={[Autoplay]}
@@ -29,7 +29,7 @@ const PoliticsCarousel: React.FC<Props> = ({ news }) => {
         className="mySwiper"
         autoplay={{
           delay: 3000,
-          disableOnInteraction: false, 
+          disableOnInteraction: false,
         }}
       >
         {news.map((article, index) => (
@@ -43,7 +43,11 @@ const PoliticsCarousel: React.FC<Props> = ({ news }) => {
               className="w-full h-40 object-cover"
             />
             <div className="p-3">
-            <Link href={`/${article.title}`}><h3 className="text-sm font-semibold hover:underline">{article.title}</h3></Link>
+              <Link href={`/${article.title}`}>
+                <h3 className="text-sm font-semibold hover:underline">
+                  {article.title}
+                </h3>
+              </Link>
             </div>
           </SwiperSlide>
         ))}

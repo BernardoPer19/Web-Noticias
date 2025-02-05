@@ -11,6 +11,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      }, fontFamily: {
+        noto: ["var(--font-noto-serif)", "serif"], // Agregamos la variable CSS
       },
     },
   },

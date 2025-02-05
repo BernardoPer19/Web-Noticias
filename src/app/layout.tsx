@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Ui/server/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const notoSerif = Noto_Serif({
+  variable: "--font-noto-serif",
   subsets: ["latin"],
 });
 
@@ -24,11 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={` ${geistMono.variable} antialiased`}
-      >
-        <Navbar/>
+    <html lang="en" className={notoSerif.variable}>
+      <body className="font-noto antialiased">
+        <Navbar />
         <main>{children}</main>
       </body>
     </html>

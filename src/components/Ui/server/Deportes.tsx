@@ -1,4 +1,4 @@
-import { fetchCategoryNews, fetchSortedNews } from "@/hooks/useFetchNews";
+import { fetchSortedNews } from "@/hooks/useFetchNews";
 import Link from "next/link";
 
 export default async function SportsNews() {
@@ -14,18 +14,20 @@ export default async function SportsNews() {
 
   return (
     <section className="container mx-auto p-6 ">
-      {/* Noticia principal */}
+   <h1 className="text-3xl p-6 font-bold">Deportes</h1>
       <div className="flex flex-col md:flex-row  rounded-lg overflow-hidden">
-        {/* Imagen */}
+    
         <img
           src={mainNews.urlToImage}
           alt={mainNews.title}
           className="w-full md:w-1/2 h-72 object-cover"
         />
-        {/* Texto */}
+  
         <div className="p-6 flex flex-col justify-center md:w-1/2">
+
+
           <Link href={`/${mainNews.title}`}>
-            <h2 className="text-sm cursor-pointer hover:underline">
+            <h2 className="text-4xl fond-bold cursor-pointer hover:underline">
               {mainNews.title}
             </h2>
           </Link>
@@ -50,6 +52,7 @@ export default async function SportsNews() {
                 {article.title}
               </h3>
             </Link>
+
           </div>
         ))}
       </div>
