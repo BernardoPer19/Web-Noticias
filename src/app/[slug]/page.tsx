@@ -8,10 +8,10 @@ import Relacionados from "@/components/Ui/server/Relacionados";
 import UltimasNoticias from "@/components/Ui/server/UltimasNoticias";
 import Entretenimiento from "@/components/Ui/server/Entretenimiento";
 
-
-
 export default async function NewsDetail({ params }: { params: any }) {
-  const decodedTitle = decodeURIComponent(params.slug);
+  // 💡 ¡Aquí está el truco!
+  const { slug } = await params;
+  const decodedTitle = decodeURIComponent(slug);
   const news = await fetchSearchNews(encodeURIComponent(decodedTitle));
   const article = news.find((item: NewsTypes) => item.title === decodedTitle);
 
