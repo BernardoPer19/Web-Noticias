@@ -3,14 +3,15 @@ import { NewsTypes } from "@/types/NewsTypes";
 import Link from "next/link";
 import React from "react";
 
-export default async function PageFetch({ params }: { params: any }) {
-  // Espera a que se resuelvan los params
-  const { slug } = await params;
 
-  // 2️⃣ Usa ese slug para tus peticiones
+type Props = {
+  params: { slug: string };
+};
+
+export default async function PageFetch({ params }: Props) {
+  const { slug } = params;
   const news = await fetchSearchNews(slug);
 
-  // 3️⃣ Si necesitas la categoría en una variable:
   const category = slug;
   return (
     <div className="container mx-auto p-4">
