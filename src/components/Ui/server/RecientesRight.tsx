@@ -9,7 +9,7 @@ import React from "react";
 async function RecientesRight() {
 
 const news = await fetchSortedNews("breaking news", "publishedAt");
-const rightNews = news.slice(3, 8);
+const rightNews = news.slice(10,14);
 
   return (
     <div className="flex flex-col justify-center gap-6 col-span-1">

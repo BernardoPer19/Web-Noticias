@@ -1,4 +1,4 @@
-import { fetchSearchNews, fetchSortedNews } from "@/hooks/useFetchNews";
+import { fetchSortedNews } from "@/hooks/useFetchNews";
 
 async function NoticiasHoy() {
   const news = await fetchSortedNews("everything", "publishedAt");

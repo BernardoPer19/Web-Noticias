@@ -8,10 +8,10 @@ async function RecientesUI() {
   if (!news.length) return <p>No hay noticias disponibles.</p>;
 
   const leftNews = news.slice(0, 3);
-  const centerNews = news[52];
+  const centerNews = news[31];
 
   return (
-    <main className="h-screen  p-6 m-auto flex items-center flex-col justify-center gap-5">
+    <main className="h-screen p-6 m-auto flex items-center flex-col justify-center gap-5">
       <h1 className="text-start w-full text-4xl font-bold">Noticias Recientes</h1>
       <div className="grid grid-cols-4 gap-6">
     
