@@ -1,5 +1,4 @@
 import { fetchSortedNews } from "@/hooks/useFetchNews";
-import { NewsTypes } from "@/types/NewsTypes";
 import Link from "next/link";
 import React from "react";
 

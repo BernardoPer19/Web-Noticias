@@ -1,4 +1,3 @@
-import { useNewsContext } from '@/context/NewsContext';
 import { fetchCategoryNews } from '@/hooks/useFetchNews';
 import Link from 'next/link';
 import React from 'react'

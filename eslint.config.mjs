@@ -14,7 +14,6 @@ const eslintConfig = [
 
   {
     rules: {
-      // 🔴 Desactiva la advertencia del <img>
       "@next/next/no-img-element": "off",
     },
   },
