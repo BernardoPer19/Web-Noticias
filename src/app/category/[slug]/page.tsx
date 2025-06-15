@@ -1,22 +1,20 @@
+// app/category/[slug]/page.tsx
+
 import { fetchSearchNews } from "@/hooks/useFetchNews";
 import { NewsTypes } from "@/types/NewsTypes";
 import Link from "next/link";
-import React from "react";
 
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
-type Props = {
-  params: { slug: string };
-};
+export default async function PageFetch(props: PageProps) {
+  const { slug } = await props.params;
+  const news = await fetchSearchNews(encodeURIComponent(slug));
 
-export default async function PageFetch({ params }: Props) {
-  const { slug } = params;
-  const news = await fetchSearchNews(slug);
-
-  const category = slug;
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6 capitalize">{category} News</h1>
-
+      <h1 className="text-3xl font-bold mb-6 capitalize">{slug} News</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {news.map((article: NewsTypes, i: number) => (
           <div
