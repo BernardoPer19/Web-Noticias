@@ -8,13 +8,17 @@ import Relacionados from "@/components/Ui/server/Relacionados";
 import UltimasNoticias from "@/components/Ui/server/UltimasNoticias";
 import Entretenimiento from "@/components/Ui/server/Entretenimiento";
 
-export default async function NewsDetail({
-  params,
-}: {
-  params: { slug: string };
-}) {
+// ✅ Tipado claro y correcto
+type PageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default async function NewsDetail({ params }: PageProps) {
   const { slug } = params;
   const decodedTitle = decodeURIComponent(slug);
+
   const news = await fetchSearchNews(encodeURIComponent(decodedTitle));
   const article = news.find((item: NewsTypes) => item.title === decodedTitle);
 
@@ -33,12 +37,13 @@ export default async function NewsDetail({
       <Link href="/" className="text-blue-500 hover:underline text-sm">
         ⬅ Volver a Inicio
       </Link>
-      <div className="flex gap-10">
-        <div>
-          <h1 className="text-4xl font-bold mt-4 ">{article.title}</h1>
 
-          <p className=" text-sm mt-2">
-            🗓️ Publicado el:
+      <div className="flex gap-10 mt-4 flex-col lg:flex-row">
+        <div className="flex-1">
+          <h1 className="text-4xl font-bold mt-4">{article.title}</h1>
+
+          <p className="text-sm mt-2">
+            🗓️ Publicado el:{" "}
             {new Date(article.publishedAt).toLocaleDateString()}
           </p>
 
@@ -50,19 +55,25 @@ export default async function NewsDetail({
 
           <div className="mt-6 space-y-4 leading-relaxed">
             <p className="text-lg font-semibold">{article.description}</p>
-            <p className="">{article.content}</p>
-            <p className="">Autores: {article.author}</p>
-            <a href={article.url} className="text-blue-500">
-              🔗 Abre Para Ver La Fuente!
+            <p>{article.content}</p>
+            <p>Autores: {article.author}</p>
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 underline"
+            >
+              🔗 Ver fuente original
             </a>
           </div>
 
-          <p className="text-sm mt-2">
+          <p className="text-sm mt-4">
             👀 {Math.floor(Math.random() * 5000) + 100} vistas
           </p>
 
           <CompartirBtn article={article} />
         </div>
+
         <RecientesRight />
       </div>
 
